@@ -54,7 +54,7 @@ namespace Lab3
             do
             {
                 System.Console.Clear();
-                Console.WriteLine($"{nameOfPerson}, I would like you to enter an integer between 1 and 100: ");
+                Console.Write($"{nameOfPerson}, I would like you to enter an integer between 1 and 100: ");
                 
                 selectedNumber = int.TryParse(Console.ReadLine(), out int selectedNumberAsInt);
                 if (!selectedNumber)
@@ -64,7 +64,7 @@ namespace Lab3
                 }                 
                 else if (selectedNumber && (selectedNumberAsInt >= 1) && (selectedNumberAsInt <= 100))
                 {
-                    Console.WriteLine($"Good job {nameOfPerson}, Your input is valid");
+                    Console.WriteLine($"Good job {nameOfPerson}, your input is valid\n");
                     return selectedNumberAsInt;
                 }
                 else
@@ -82,26 +82,26 @@ namespace Lab3
             //If the integer entered is odd, print the number entered and “Odd.”
             if (inputAsInteger%2!=0)
             {
-                Console.WriteLine($"{inputAsInteger},  Odd.");
+                Console.WriteLine($"{inputAsInteger},  Odd.\n");
             }
 
             //If the integer entered is even and in the inclusive range of 2 to 25, print “Even and less than 25.”
             else if(inputAsInteger%2==0&&(inputAsInteger>=2 && inputAsInteger<=25))
             {
-                Console.WriteLine("Even and less than 25");
+                Console.WriteLine("Even and less than 25\n");
             }
 
             //If the integer entered is even and in the inclusive range of 26 to 60, print “Even.”
             else if (inputAsInteger%2==0 && (inputAsInteger>=26 && inputAsInteger<=60))
             {
-                Console.WriteLine("Even.");
+                Console.WriteLine("Even.\n");
             }
 
             //If the integer entered is even and greater than 60, print the number entered
             //and “Even.”
             else if (inputAsInteger%2==0 && inputAsInteger>60)
             {
-                Console.WriteLine($"{inputAsInteger}, Even");
+                Console.WriteLine($"{inputAsInteger}, Even\n");
             }
 
             //If the integer entered is odd and greater than 60, print the number entered
