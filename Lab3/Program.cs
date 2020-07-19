@@ -30,7 +30,7 @@ namespace Lab3
             {
                 var doAgain = Console.ReadLine();
                 validInput = char.TryParse(doAgain, out char doAgainAsChar);
-                if (validInput && (doAgainAsChar.ToString().ToLower() == "y"))
+                if (validInput && (char.Parse(doAgainAsChar.ToString().ToLower()) == 'y'))
                 {
                     return true;
                 }
@@ -44,8 +44,6 @@ namespace Lab3
             var firstLetterCapitalized = firstLetter.ToString().ToUpper();
             personName = personName.Remove(0, 1);
             var personNameAsStandard = personName.Insert(0, firstLetterCapitalized.ToString());
-
-
             return personNameAsStandard;
         }
         private static int SelectNumber(string nameOfPerson)
