@@ -46,6 +46,8 @@ namespace Lab3
             var personNameAsStandard = personName.Insert(0, firstLetterCapitalized.ToString());
             return personNameAsStandard;
         }
+
+
         private static int SelectNumber(string nameOfPerson)
         {
             bool selectedNumber = false;
@@ -75,33 +77,38 @@ namespace Lab3
             } while (!selectedNumber);
             return 0;
         }
+
+        private static bool CheckIsNumberEven(int number)
+        {
+            if (number%2==0)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+        }
         private static void AnalyzeInteger(int inputAsInteger)
         {
-            //If the integer entered is odd, print the number entered and “Odd.”
-            if (inputAsInteger%2!=0)
+            if (CheckIsNumberEven(inputAsInteger))
+            {
+                if (inputAsInteger >= 2 && inputAsInteger <= 25)  //If the integer entered is even and in the inclusive range of 2 to 25, print “Even and less than 25.”
+                {
+                    Console.WriteLine("Even and less than 25\n");
+                }
+                else if (inputAsInteger >= 26 && inputAsInteger <= 60) //If the integer entered is even and in the inclusive range of 26 to 60, print “Even.”
+                {
+                    Console.WriteLine("Even.\n");
+                }
+                else //If the integer entered is even and greater than 60, print the number entered and “Even.”
+                {
+                    Console.WriteLine($"{inputAsInteger}, Even\n");
+                }
+            }
+            if (!CheckIsNumberEven(inputAsInteger)) //If the integer entered is odd, print the number entered and “Odd.”
             {
                 Console.WriteLine($"{inputAsInteger},  Odd.\n");
             }
-
-            //If the integer entered is even and in the inclusive range of 2 to 25, print “Even and less than 25.”
-            else if(inputAsInteger%2==0&&(inputAsInteger>=2 && inputAsInteger<=25))
-            {
-                Console.WriteLine("Even and less than 25\n");
-            }
-
-            //If the integer entered is even and in the inclusive range of 26 to 60, print “Even.”
-            else if (inputAsInteger%2==0 && (inputAsInteger>=26 && inputAsInteger<=60))
-            {
-                Console.WriteLine("Even.\n");
-            }
-
-            //If the integer entered is even and greater than 60, print the number entered
-            //and “Even.”
-            else if (inputAsInteger%2==0 && inputAsInteger>60)
-            {
-                Console.WriteLine($"{inputAsInteger}, Even\n");
-            }
-
             //If the integer entered is odd and greater than 60, print the number entered
             //and “Odd.”
 
