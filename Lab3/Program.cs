@@ -7,21 +7,23 @@ namespace Lab3
         static void Main(string[] args)
         {
             System.Console.Clear();
-            Console.WriteLine("Please enter your name: ");
-            var personName = Console.ReadLine();
-            var personNameStandardized = FormatNameToStandard(personName); //proof of concept
+            var personName = GetName();
             System.Console.Clear();
-            Console.WriteLine($"Hello, {personNameStandardized}");
+            Console.WriteLine($"Hello, {personName}");
             Console.WriteLine();
-
-            var again = false;
+            
             do
             {
-                AnalyzeInteger(SelectNumber(personNameStandardized));
-                again = DoAgain(personNameStandardized);
-            } while (again);
-        }
+                AnalyzeInteger(SelectNumber(personName));
+            } while (DoAgain(personName));
 
+        }
+        private static string GetName()
+        {
+            Console.WriteLine("Please enter your name: ");
+            var personName = Console.ReadLine();
+            return FormatNameToStandard(personName);
+        }
         private static bool DoAgain(string personsName)
         {
             Console.WriteLine($"{personsName}, Would you like to go again? y to continue, anything else to end");
@@ -37,7 +39,6 @@ namespace Lab3
                 else return false;
             } while (!validInput);
         }
-
         private static string FormatNameToStandard(string personName)
         {
             char firstLetter = personName[0];
@@ -46,8 +47,6 @@ namespace Lab3
             var personNameAsStandard = personName.Insert(0, firstLetterCapitalized.ToString());
             return personNameAsStandard;
         }
-
-
         private static int SelectNumber(string nameOfPerson)
         {
             bool selectedNumber = false;
@@ -72,12 +71,10 @@ namespace Lab3
                     Console.WriteLine($"{nameOfPerson}, your input was outside the required parameters, try again. Press <Enter> key to continue.....");
                     Console.ReadLine();
                     selectedNumber = false;
-
                 }
             } while (!selectedNumber);
             return 0;
         }
-
         private static bool CheckIsNumberEven(int number)
         {
             if (number%2==0)
